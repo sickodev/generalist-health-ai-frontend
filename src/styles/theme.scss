@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+
+// Angular Material 17 Healthcare Theme Definition
+$rcm-primary: mat.define-palette(mat.$indigo-palette, 700, 500, 900);
+$rcm-accent: mat.define-palette(mat.$teal-palette, A400, A200, A700);
+$rcm-warn: mat.define-palette(mat.$red-palette, 700, 500, 900);
+
+$rcm-theme: mat.define-light-theme((
+  color: (
+    primary: $rcm-primary,
+    accent: $rcm-accent,
+    warn: $rcm-warn
+  ),
+  typography: mat.define-typography-config(
+    $font-family: 'Roboto, "Helvetica Neue", sans-serif'
+  ),
+  density: 0
+));
+
+// Apply Angular Material component themes
+@include mat.all-component-themes($rcm-theme);
+
+// Semantic Clinical & RCM Design Tokens
+:root {
+  // Risk Score Color Tokens
+  --rcm-risk-clean: #2e7d32;
+  --rcm-risk-clean-bg: #e8f5e9;
+  --rcm-risk-clean-border: #a5d6a7;
+
+  --rcm-risk-moderate: #f57f17;
+  --rcm-risk-moderate-bg: #fff8e1;
+  --rcm-risk-moderate-border: #ffe082;
+
+  --rcm-risk-denied: #c62828;
+  --rcm-risk-denied-bg: #ffebee;
+  --rcm-risk-denied-border: #ef9a9a;
+
+  // Surface & Layout Tokens
+  --rcm-bg-app: #f8fafc;
+  --rcm-surface: #ffffff;
+  --rcm-surface-muted: #f1f5f9;
+  --rcm-border: #e2e8f0;
+  --rcm-border-strong: #cbd5e1;
+
+  // Typography Tokens
+  --rcm-text-primary: #0f172a;
+  --rcm-text-secondary: #64748b;
+  --rcm-text-muted: #94a3b8;
+
+  // Brand Palette
+  --rcm-primary-color: #303f9f;
+  --rcm-primary-light: #e8eaf6;
+  --rcm-accent-color: #00bfa5;
+  --rcm-accent-light: #e0f2f1;
+}

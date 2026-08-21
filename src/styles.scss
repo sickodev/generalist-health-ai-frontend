@@ -1,9 +1,64 @@
-@use '@angular/material' as mat;
+@use './styles/theme';
 
-@include mat.core();
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--rcm-bg-app);
+  color: var(--rcm-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Global Card & Surface Enhancements
+.rcm-card {
+  background: var(--rcm-surface);
+  border-radius: 12px;
+  border: 1px solid var(--rcm-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+// Clinical Severity / Risk Badges
+.badge-clean {
+  background-color: var(--rcm-risk-clean-bg) !important;
+  color: var(--rcm-risk-clean) !important;
+  border: 1px solid var(--rcm-risk-clean-border);
+}
+
+.badge-review {
+  background-color: var(--rcm-risk-moderate-bg) !important;
+  color: var(--rcm-risk-moderate) !important;
+  border: 1px solid var(--rcm-risk-moderate-border);
+}
+
+.badge-denied {
+  background-color: var(--rcm-risk-denied-bg) !important;
+  color: var(--rcm-risk-denied) !important;
+  border: 1px solid var(--rcm-risk-denied-border);
+}
+
+// Material Component Overrides for Clean Modern UI
+.mat-mdc-card {
+  border-radius: 12px !important;
+}
+
+.mat-mdc-snack-bar-container {
+  &.snack-success {
+    --mdc-snackbar-container-color: #2e7d32;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+  }
+  &.snack-error {
+    --mdc-snackbar-container-color: #c62828;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+  }
 }
